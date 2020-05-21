@@ -472,13 +472,13 @@ class TextExerciser:
         btnBound = btnInfo["bounds"]
         btnWidth = btnBound["right"] - btnBound["left"]
         btnHeight = btnBound["bottom"] - btnBound["top"]
-        device.swipe(btnBound["left"] + btnWidth / 2, btnBound["top"] + btnHeight / 2,
+        device.device.swipe(btnBound["left"] + btnWidth / 2, btnBound["top"] + btnHeight / 2,
                      btnBound["left"] + btnWidth / 2, btnBound["top"] + btnHeight / 2 * 3)
 
     def up_down_swipe(self, device, formatBounds):
         btnWidth = formatBounds[1][0] - formatBounds[0][0]
         btnHeight = formatBounds[1][1] - formatBounds[0][1]
-        device.swipe(formatBounds[0][0] + btnWidth / 2, formatBounds[0][1] + btnHeight / 2,
+        device.device.swipe(formatBounds[0][0] + btnWidth / 2, formatBounds[0][1] + btnHeight / 2,
                      formatBounds[0][0] + btnWidth / 2, formatBounds[0][1] + btnHeight / 2 * 3)
 
     def send_input(self, text_input, last_node):
@@ -660,11 +660,11 @@ class TextExerciser:
                 if btntext == self.device.get_element_info(btn)['text']:
                     self.up_down_swipe_element(device, btn)
                     count += 1
-            if 'ok' in btntext or 'done' in btntext:
+            if 'ok' in btntext or 'done' in btntext.lower():
                 tmpNode = XmlTree("", self.device.dump_raw_xml())
                 okid = self.get_resource_id(tmpNode, btn)
         if okid:
-            self.device.click_ui2_element(self.device.get_elements_by_resource_id(okid))
+            self.device.click_ui2_element(okid)
             count += 1
             return count
         else:
