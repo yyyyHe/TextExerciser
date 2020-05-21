@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import xml.etree.cElementTree as ET
 import os
-from code.src.base.node_info import Node, EditNode, split_resource_id, has_filter_key, EDIT_CLASS
-from code.src import globalConfig
+from src.base.node_info import Node, EditNode, split_resource_id, has_filter_key, EDIT_CLASS
+from src import globalConfig
 import re
 
 

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 import re
-from code import src as te
+from src.text_exerciser.mutate import type_extract as te
 from nltk import word_tokenize
 from nltk.tag import StanfordPOSTagger
 from nltk.stem import WordNetLemmatizer
 from nltk import Tree
-from code.src import NAME_DICT
-from code.src.text_exerciser.mutate.nlp import regulations
+from src.text_exerciser.mutate.nlp.regulations import NAME_DICT
+from src.text_exerciser.mutate.nlp import regulations
 from nltk.corpus import stopwords
-from code.src import PARSER
-from code.src import globalConfig
+from src.globalConfig import PARSER
+from src import globalConfig
 
 
 MODEL = globalConfig.STANFORD_TAGGER

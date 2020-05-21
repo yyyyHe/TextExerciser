@@ -3,8 +3,7 @@ import re, random
 import func_timeout
 from func_timeout import func_set_timeout
 import string as template_string
-from code.src import UsingZ3
-from code.src import globalConfig
+from src import globalConfig
 from z3 import *
 
 NONE_PRINTABLE = ['\x00', '\x01', '\x02', '\x03']
@@ -29,7 +28,7 @@ class Composition:
         # constraint type: time(date)、str、value、repeat、invalid
         self.type = 'Null'
         self.ordHelperCounter = 0
-        if UsingZ3:
+        if globalConfig.UsingZ3:
             self.z3solver = Solver()
         else:
             self.z3solver = None

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from code.src import globalConfig
+from src import globalConfig
 import os
 
 

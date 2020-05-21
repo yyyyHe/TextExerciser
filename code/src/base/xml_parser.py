@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from code.src.base import shell_cmd
+from src.base import shell_cmd
 
 
 class A(object):

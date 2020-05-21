@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from code.src import XmlTree
-from code.src.base.node_info import Node as xml_node
+from src.base.xml_builder import XmlTree
+from src.base.node_info import Node as xml_node
 import hashlib
-from code.src.base.node_info import EDIT_CLASS as edit_class
+from src.base.node_info import EDIT_CLASS as edit_class
 
 
 class Node:

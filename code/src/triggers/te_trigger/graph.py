@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from code.src import Node
-from code.src import Edge
+from src.triggers.te_trigger.node import Node
+from src.triggers.te_trigger.edge import Edge
 import networkx as nx
 import matplotlib.pyplot as plt
 

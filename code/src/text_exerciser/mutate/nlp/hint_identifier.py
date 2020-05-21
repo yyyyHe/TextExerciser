@@ -3,10 +3,10 @@ import os
 import logging
 import json
 import pickle
-from code.src.text_exerciser.mutate.nlp import data_helper
+from src.text_exerciser.mutate.nlp import data_helper
 import numpy as np
 import tensorflow as tf
-from code.src.text_exerciser.mutate.nlp.text_cnn_rnn import TextCNNRNN
+from src.text_exerciser.mutate.nlp.text_cnn_rnn import TextCNNRNN
 
 # warnings.filterwarnings('ignore')
 logging.getLogger().setLevel(logging.ERROR)

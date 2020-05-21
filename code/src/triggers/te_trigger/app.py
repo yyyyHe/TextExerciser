@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from code.src.base import xml_parser
+from src.base import xml_parser
 
 
 class App:

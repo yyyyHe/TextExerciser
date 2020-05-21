@@ -5,8 +5,8 @@ import os
 import platform
 import traceback
 import subprocess
-from code.src.base import xml_parser
-from code.src import globalConfig
+from src.base import xml_parser
+from src import globalConfig
 
 
 class Worker(threading.Thread):

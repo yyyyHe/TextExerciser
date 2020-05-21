@@ -2,9 +2,9 @@
 import re
 import numpy as np
 from nltk.tag import StanfordPOSTagger
-from code.src.text_exerciser.mutate.db.db_helper import get_tags_by_type, get_type_order, get_hints_by_type, get_all_types
+from src.text_exerciser.mutate.db.db_helper import get_tags_by_type, get_type_order, get_hints_by_type, get_all_types
 import difflib
-from code.src import globalConfig
+from src import globalConfig
 
 
 MODEL = globalConfig.STANFORD_TAGGER

@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 import os
 import time
-import traceback
-from code.src.base.node_info import is_same_bound
-from code.src.base import shell_cmd
-from func_timeout import func_set_timeout
-from selenium.common.exceptions import WebDriverException
-from code.src import ServerInteractor
-from code.src import sentence2type
-from code.src import XmlTree
-from code.src.base.node_info import has_filter_key, split_resource_id
-from code.src import globalConfig
-from code.src import IG
 import random
 import copy
-from code.src import Node
-from code.src import Edge
-from code.src import Device
-from code.src import get_input_by_type
+import traceback
+from src.base.node_info import is_same_bound
+from src.base import shell_cmd
+from func_timeout import func_set_timeout
+from selenium.common.exceptions import WebDriverException
+from src.base.server.server_interactor import ServerInteractor
+from src.text_exerciser.mutate.type_extract import sentence2type
+from src.base.xml_builder import XmlTree
+from src.base.node_info import has_filter_key, split_resource_id
+from src import globalConfig
+from src.text_exerciser.mutate.input_generator import IG
+from src.triggers.te_trigger.node import Node
+from src.triggers.te_trigger.edge import Edge
+from src.triggers.te_trigger.device import Device
+from src.text_exerciser.mutate.type_extract import get_input_by_type
 
 
 class AbstractClickableNode:

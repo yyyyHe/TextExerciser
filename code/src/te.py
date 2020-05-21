@@ -2,7 +2,7 @@
 import argparse
 import os
 import json
-from code.src import globalConfig
+from src import globalConfig
 
 
 def main():
@@ -56,10 +56,10 @@ def main():
         globalConfig.Debug = True
     check_nltk()
     if args.apk:
-        from code.src.triggers.te_trigger.te_trigger import TETrigger
+        from src.triggers.te_trigger.te_trigger import TETrigger
         TETrigger(devices[0], op_throttle, args.apk).run_trigger()
     elif args.folder:
-        from code.src import Task
+        from src import Task
         Task(args.folder).analyze(devices, op_throttle)
     else:
         print('You must provide an apk file to test.')

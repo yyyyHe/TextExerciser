@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-from code import src as shell
-from code.src.triggers.te_trigger.app import App
+from src.base import shell_cmd as shell
+from src.triggers.te_trigger.app import App
 import uiautomator2 as u2
 from uiautomator2 import Device as u2_device
-from code.src import Node
-from code.src import XmlTree
-from code.src.base.node_info import Node as xml_node
+from src.triggers.te_trigger.node import Node
+from src.base.xml_builder import XmlTree
+from src.base.node_info import Node as xml_node
 from func_timeout import func_set_timeout
 import logging
 import time

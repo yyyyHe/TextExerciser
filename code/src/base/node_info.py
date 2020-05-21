@@ -2,8 +2,8 @@
 import re
 import numpy
 import hashlib
-from code.src import globalConfig
-from code.src.text_exerciser.mutate.composition import Composition
+from src import globalConfig
+from src.text_exerciser.mutate.composition import Composition
 
 
 EDIT_CLASS = [

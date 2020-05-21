@@ -3,9 +3,9 @@ import os
 import pykka
 import time
 import logging
-from code.src import ApkListGenerator
-from code.src.triggers.te_trigger.te_trigger import TETrigger
-from code.src import globalConfig
+from src.triggers.apk_list import ApkListGenerator
+from src.triggers.te_trigger.te_trigger import TETrigger
+from src import globalConfig
 
 
 class Dispatch(pykka.ThreadingActor):

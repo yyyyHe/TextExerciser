@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from code import src as te, src as tg
-import code.src.text_exerciser.mutate.constraint_extract as ce
+from src.text_exerciser.mutate import type_extract as te
+from src.text_exerciser.mutate.nlp import tree_grammar as tg
+import src.text_exerciser.mutate.constraint_extract as ce
 import re, random, time
 import string as hstring
 import numpy as np
-from code.src import globalConfig
-from code.src.text_exerciser.mutate.composition import Composition
+from src import globalConfig
+from src.text_exerciser.mutate.composition import Composition
 
 
 def random_generate(length: int = 1, number=False, letter=False):

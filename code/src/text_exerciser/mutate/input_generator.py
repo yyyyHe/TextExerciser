@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import json, re, os, random
-from code.src import globalConfig
-from code.src.text_exerciser.mutate import constraint_extract as ce, mutation, type_extract as te
-from code.src.base import node_info
-from code.src import RestrLogName, SherlockRawTextLogName, Str01LogName, StrMultiLogName
-from code.src import HintIdentifier
+from src import globalConfig
+from src.text_exerciser.mutate import constraint_extract as ce
+from src.text_exerciser.mutate import type_extract as te
+from src.text_exerciser.mutate import mutation
+from src.base import node_info
+from src.globalConfig import RestrLogName, SherlockRawTextLogName, Str01LogName, StrMultiLogName
+from src.text_exerciser.mutate.nlp.hint_identifier import HintIdentifier
 import traceback
 
 

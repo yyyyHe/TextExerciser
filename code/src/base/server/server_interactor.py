@@ -4,12 +4,12 @@ import json
 import re
 import time
 import difflib
-from code.src.text_exerciser.mutate.nlp import regulations
+from src.text_exerciser.mutate.nlp import regulations
 import urllib.request
-from code import src as shell
+from src.base import shell_cmd as shell
 from email.parser import Parser
 from email.header import decode_header
-from code.src import globalConfig
+from src import globalConfig
 
 
 class ServerInteractor:

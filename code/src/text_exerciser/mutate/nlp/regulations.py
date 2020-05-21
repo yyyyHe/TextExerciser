@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from code.src import ALL_TYPES
+from src.text_exerciser.mutate.type_extract import ALL_TYPES
 
 # define the index of lex.
 NAME_DICT = {"a": "Object", "b": "Number", "c": "Decoration", "d": "Special", "e": "Space", "f": "Letter", "g": "Digit",

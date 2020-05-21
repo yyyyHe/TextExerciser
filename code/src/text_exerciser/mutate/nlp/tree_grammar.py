@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from code.src import PARSER
-from code.src import TYPE_TAGS
+from src.globalConfig import PARSER
+from src.text_exerciser.mutate.type_extract import TYPE_TAGS
 import nltk
-from code.src.text_exerciser.mutate.nlp import regulations
+from src.text_exerciser.mutate.nlp import regulations
 import re
 
 # Major subjects in a sentence

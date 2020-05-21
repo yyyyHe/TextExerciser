@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import traceback
-from code.src import Device
-from code.src import TextExerciser
+from src.triggers.te_trigger.device import Device
+from src.text_exerciser.text_exerciser import TextExerciser
 import time
 import os
-from code.src import globalConfig
-from code.src import Node
+from src import globalConfig
+from src.triggers.te_trigger.node import Node
 
 
 class TEChecker:

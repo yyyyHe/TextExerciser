@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from code.src.base.node_info import Node as xml_node
+from src.base.node_info import Node as xml_node
 
 
 class Edge:

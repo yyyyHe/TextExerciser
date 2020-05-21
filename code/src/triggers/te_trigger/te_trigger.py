@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 import shutil
 import traceback
-from code.src.base import con_logcat
-from code.src.triggers.te_trigger.app import App
-from code.src import Device
-from code.src import Node
-from code.src import Graph
-from code.src import Edge
-from code.src import globalConfig
+from src.base import con_logcat
+from src.triggers.te_trigger.app import App
+from src.triggers.te_trigger.device import Device
+from src.triggers.te_trigger.node import Node
+from src.triggers.te_trigger.graph import Graph
+from src.triggers.te_trigger.edge import Edge
+from src import globalConfig
 from func_timeout import func_set_timeout
-from code.src.base.node_info import Node as xml_node
-from code.src import TEChecker
+from src.base.node_info import Node as xml_node
+from src.text_exerciser.te_checker import TEChecker
 import func_timeout
 import logging
 import random
