@@ -59,7 +59,7 @@ class ServerInteractor:
         self.getCount += 1
         return self.get_near_verify_codes_from_email()
 
-    def get_near_verify_codes_from_phone(self, num: int = 100):
+    def get_near_verify_codes_from_phone(self, num: int = 5):
         logcat_lines = shell.execute('adb -s %s logcat -d XposedHookToast:D *:S' % globalConfig.ReceiveSmsDeviceID, shell=True)[0]
         codes = {}
         for line in list(reversed(logcat_lines))[:num]:
