@@ -93,7 +93,7 @@ def type_regulation(edit_node, around_nodes, in_node):
     globalConfig.te_logger.info('Extract type %s from layout_info stence %s' % (','.join(input_layout_info_type), in_text))
     globalConfig.te_logger.info('Extract type %s from around_info stence %s' % (','.join(around_text_info_type), nearby_str))
     # vote
-    all_detected_type = resource_id_info_type + input_layout_info_type + around_text_info_type
+    all_detected_type = resource_id_info_type + input_layout_info_type + list(set(around_text_info_type))
     if all_detected_type:
         tmp_count = {may_type: all_detected_type.count(may_type) for may_type in all_detected_type}
         max_count = max(tmp_count.values())
@@ -101,14 +101,8 @@ def type_regulation(edit_node, around_nodes, in_node):
         if len(may_types) == 1:
             edit_type = may_types[0]
         else:
-            tmp_count = {may_type: all_detected_type.index(may_type) for may_type in may_types}
-            min_index = min(tmp_count.values())
-            may_types = [tmp for tmp in tmp_count.keys() if tmp_count[tmp] == min_index]
-            if len(may_types) == 1:
-                edit_type = may_types[0]
-            else:
-                tmp_count = {may_type: TYPE_ORDER[may_type] for may_type in may_types}
-                edit_type = min(zip(tmp_count.values(), tmp_count.keys()))
+            tmp_count = {may_type: TYPE_ORDER[may_type] for may_type in may_types}
+            edit_type = min(zip(tmp_count.values(), tmp_count.keys()))[-1]
     else:
         edit_type = 'Text'
     # countrycode
