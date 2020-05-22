@@ -79,8 +79,8 @@ def mutate_input(init_input, self_hash, constraints, composition: Composition, n
             if domain:
                 globalConfig.te_logger.info('domain may be valid: ' + str(domain))
             else:
-                from code.src import RootDomain
-                domain = random_generate(3) + '.' + random.choice(RootDomain)
+                from src.text_exerciser.mutate.nlp.regulations import ROOT_DOMAIN
+                domain = random_generate(3) + '.' + random.choice(ROOT_DOMAIN)
             pool = composition.compose['Number'][1] + composition.compose['Letter'][1]
             probArray['add'] = [globalConfig.add_tendency, pool, int(len(stringRealm) * 0.2) + 1]
             probArray['sub'] = [globalConfig.sub_tendency, stringRealm, int(len(stringRealm) * 0.2) + 1]
