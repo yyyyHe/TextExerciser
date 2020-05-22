@@ -373,7 +373,7 @@ class TextExerciser:
         else:
             self.find_send_code_and_click(last_page_node)
             self.log_input("Wait for verification code to be sent...")
-            time.sleep(10)
+        time.sleep(2 * self.ui_waiting_duration)
         try:
             verify_code = self.pick_verify_code(last_page_node)
         except:

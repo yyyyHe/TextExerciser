@@ -53,18 +53,19 @@ class ServerInteractor:
 
     def only_get_phone_code(self) -> str:
         self.getCount += 1
-        return self.get_near_verify_codes_from_email()
+        return self.get_near_verify_codes_from_phone()
 
     def only_get_email_code(self) -> str:
         self.getCount += 1
         return self.get_near_verify_codes_from_email()
 
-    def get_near_verify_codes_from_phone(self, num: int = 4):
+    def get_near_verify_codes_from_phone(self, num: int = 100):
         logcat_lines = shell.execute('adb -s %s logcat -d XposedHookToast:D *:S' % globalConfig.ReceiveSmsDeviceID, shell=True)[0]
         codes = {}
         for line in list(reversed(logcat_lines))[:num]:
-            con = json.loads(line.split('HyySmsGettingJsonStr:')[-1])
-            body = con['body']
+            if 'HyySmsGettingJsonStr:' not in line:
+                continue
+            body = line.split('HyySmsGettingJsonStr:')[-1]
             code = match_verify_code(body)
             if code is not None and code not in self.verify_code_record:
                 codes[code] = self.cal_similarity(body)
