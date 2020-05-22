@@ -141,6 +141,7 @@ class TextExerciser:
         is_initial_input = False
         source_page = start_node.page
         clickable_buttons = self.get_clickable_buttons(start_node)
+        cp_edit_node_list = copy.deepcopy(source_page.EditNodes)
         mutate_count = 0
         max_mutate_time = globalConfig.MaxMutateTime
         alert_text_node_list = []
@@ -152,7 +153,6 @@ class TextExerciser:
                 else:
                     flag = 'probe'
                 # step1：Send the information of the current page to IG for getting text input
-                cp_edit_node_list = copy.deepcopy(source_page.EditNodes)
                 cp_text_node_list = copy.deepcopy(source_page.TextNodes)
                 cp_button_node_list = copy.deepcopy(source_page.ButtonNodes)
                 ig_input, operation, distribute_failed_texts = self.ig.feed(cp_edit_node_list, cp_text_node_list,
