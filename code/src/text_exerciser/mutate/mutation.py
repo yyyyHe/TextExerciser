@@ -5,6 +5,7 @@ import src.text_exerciser.mutate.constraint_extract as ce
 import re, random, time
 import string as hstring
 import numpy as np
+import copy
 from src import globalConfig
 from src.text_exerciser.mutate.composition import Composition
 
@@ -45,10 +46,10 @@ def mutate_input(init_input, self_hash, constraints, composition: Composition, n
     globalConfig.te_logger.info('Composition: %s' % (str(composition.compose)))
     # array for mutation.
     probArray = {
-        'add': [globalConfig.prob_equalitarian, None, 0],
-        'sub': [globalConfig.prob_equalitarian, None, 0],
-        'replace': [globalConfig.prob_equalitarian, None, None, 0],
-        'concat': [globalConfig.prob_domination, '', '']
+        'add': [copy.deepcopy(globalConfig.prob_equalitarian), None, 0],
+        'sub': [copy.deepcopy(globalConfig.prob_equalitarian), None, 0],
+        'replace': [copy.deepcopy(globalConfig.prob_equalitarian), None, None, 0],
+        'concat': [copy.deepcopy(globalConfig.prob_domination), '', '']
     }
 
     if composition.type == 'Null':
@@ -82,9 +83,9 @@ def mutate_input(init_input, self_hash, constraints, composition: Composition, n
                 from src.text_exerciser.mutate.nlp.regulations import ROOT_DOMAIN
                 domain = random_generate(3) + '.' + random.choice(ROOT_DOMAIN)
             pool = composition.compose['Number'][1] + composition.compose['Letter'][1]
-            probArray['add'] = [globalConfig.add_tendency, pool, int(len(stringRealm) * 0.2) + 1]
-            probArray['sub'] = [globalConfig.sub_tendency, stringRealm, int(len(stringRealm) * 0.2) + 1]
-            probArray['replace'] = [globalConfig.replace_tendency, pool, pool, int(len(stringRealm) * 0.2) + 1]
+            probArray['add'] = [copy.deepcopy(globalConfig.add_tendency), pool, int(len(stringRealm) * 0.2) + 1]
+            probArray['sub'] = [copy.deepcopy(globalConfig.sub_tendency), stringRealm, int(len(stringRealm) * 0.2) + 1]
+            probArray['replace'] = [copy.deepcopy(globalConfig.replace_tendency), pool, pool, int(len(stringRealm) * 0.2) + 1]
             username = solve_input(init_input.split('@')[0], probArray)
             init_input = solve_input(username, probArray) + '@' + domain
         else:
@@ -95,9 +96,9 @@ def mutate_input(init_input, self_hash, constraints, composition: Composition, n
             else:
                 pool = composition.compose['Number'][1] + composition.compose['Letter'][1] + \
                        composition.compose['Special'][1]
-                probArray['add'] = [globalConfig.add_tendency, pool, int(len(stringRealm) * 0.2) + 1]
-                probArray['sub'] = [globalConfig.sub_tendency, stringRealm, int(len(stringRealm) * 0.2) + 1]
-                probArray['replace'] = [globalConfig.replace_tendency, pool, pool, int(len(stringRealm) * 0.2) + 1]
+                probArray['add'] = [copy.deepcopy(globalConfig.add_tendency), pool, int(len(stringRealm) * 0.2) + 1]
+                probArray['sub'] = [copy.deepcopy(globalConfig.sub_tendency), stringRealm, int(len(stringRealm) * 0.2) + 1]
+                probArray['replace'] = [copy.deepcopy(globalConfig.replace_tendency), pool, pool, int(len(stringRealm) * 0.2) + 1]
                 init_input = solve_input(init_input, probArray)
     elif composition.type == 'value':
         globalConfig.te_logger.info("Mutation type: value")
@@ -107,9 +108,9 @@ def mutate_input(init_input, self_hash, constraints, composition: Composition, n
         else:
             pool = composition.compose['Number'][1]
             stringRealm = ''.join(set(init_input))
-            probArray['add'] = [globalConfig.add_tendency, pool, int(len(stringRealm) * 0.2) + 1]
-            probArray['sub'] = [globalConfig.sub_tendency, stringRealm, int(len(stringRealm) * 0.2) + 1]
-            probArray['replace'] = [globalConfig.replace_tendency, pool, pool, int(len(stringRealm) * 0.2) + 1]
+            probArray['add'] = [copy.deepcopy(globalConfig.add_tendency), pool, int(len(stringRealm) * 0.2) + 1]
+            probArray['sub'] = [copy.deepcopy(globalConfig.sub_tendency), stringRealm, int(len(stringRealm) * 0.2) + 1]
+            probArray['replace'] = [copy.deepcopy(globalConfig.replace_tendency), pool, pool, int(len(stringRealm) * 0.2) + 1]
             init_input = solve_input(init_input, probArray)
     elif composition.type == 'repeat':
         # handle joint filed situation

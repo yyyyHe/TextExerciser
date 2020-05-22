@@ -213,8 +213,8 @@ class IG:
             text = text.lower()
             for last_input, type in last_inputs.items():
                 last_input = self.process_re_str(last_input)
-                type = '' if re.search(r'\b%s\b' % type, text, flags=re.IGNORECASE) else type
-                text = re.sub(r'\b%s\b' % last_input, type, text)
+                type = '' if re.search('\b%s\b' % type, text, flags=re.IGNORECASE) else type
+                text = re.sub('\b%s\b' % last_input, type, text)
             tmp_texts = ce.pre_process(ce.to_lower(text))
             if tmp_texts:
                 origin_texts.extend(tmp_texts)
