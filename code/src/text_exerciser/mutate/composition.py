@@ -377,7 +377,7 @@ class Composition:
                             if rkey != key and rkey != "Space" and isinstance(self.compose[rkey], tuple):
                                 replaceRealm += self.compose[rkey][1]
                         replaceRealm = set(replaceRealm)
-                    if uniqeRealm > composeRealm:
+                    if len(uniqeRealm - composeRealm) > 0:
                         prob['replace'] = [1, uniqeRealm - composeRealm, replaceRealm, length]
                         prob['add'] = [0, None, 0]
                         prob['sub'] = [0, None, 0]
