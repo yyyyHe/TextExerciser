@@ -148,7 +148,7 @@ class TextExerciser:
         while mutate_count < max_mutate_time + len(clickable_buttons):
             mutate_count += 1
             if not is_initial_input or consume_button is not None:
-                if not is_initial_input and not start_node.addition_res:
+                if not is_initial_input:
                     flag = 'walk'
                 else:
                     flag = 'probe'
