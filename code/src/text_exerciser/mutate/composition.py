@@ -231,6 +231,7 @@ class Composition:
         :return: None
         """
         if minimal > 0:
+            minimal += 1
             if mutate_label == '' or minimal > self.compose['minlength']:
                 self.compose['minlength'] = minimal
                 self.__longer(minimal)
