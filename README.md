@@ -1,6 +1,4 @@
 # TextExerciser
-
-## About 
 TextExerciser(TE) is an iterative, feedback-driven text input exerciser for Android apps. It can dynamictlly drive apps and generate valid text inputs based on hint shown on UI. To learn further, visit TE homepage.
 
 ## Publication
