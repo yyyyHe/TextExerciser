@@ -37,13 +37,7 @@ def make_log_dir(path: str):
 
 
 class TETrigger:
-    """
-    UI Exploration class
-    """
     def __init__(self, udid: str, op_throttle: int, app_path: str):
-        """
-        @param op_throttle: event interval
-        """
         self.udid = udid
         self.app_path = app_path
         self.app = App(app_path)
@@ -201,25 +195,19 @@ class TETrigger:
 
     def explore_current_node(self, source_node: Node):
         self.trigger_logger.info('Explore the node %s , activity %s' % (source_node.id, source_node.activity))
-        # Recursively explore UI(page)
         while True:
-            # deal with the situation where the page jumps out of the app
             if not self.is_within_app():
                 if self.is_permission_page():
                     self.trigger_logger.info('Meet a permission alert!')
-                    # Processing permission application window
                     self.handle_permission_alert(source_node)
                     time.sleep(self.ui_waiting_duration)
                     source_node = self.graph.get_node(self.device.get_current_view_node())
                 elif self.is_device_home():
                     self.trigger_logger.info('Wrong back to device home, restart app main page...')
-                    # If it jump to the desktop, restart main activity of the app
                     self.start_app_main_page()
                     time.sleep(self.ui_waiting_duration)
                     source_node = self.graph.get_node(self.device.get_current_view_node())
                 else:
-                    # if jump to the browser and other circumstances,
-                    # keep clicking back until return to the app or back to the desktop, and then return
                     while True:
                         if self.is_within_app() or self.is_device_home():
                             break
@@ -227,28 +215,21 @@ class TETrigger:
                         self.device.press_back()
                         time.sleep(2 * self.ui_waiting_duration)
                     return
-            # Determine whether it need to call TE
             if source_node.is_has_edit and source_node.is_need_exercise():
                 self.trigger_logger.info('There is edit box in this page, invoke text_exerciser...')
                 try:
                     result, back_node = self.te_checker.check_for_exercise(source_node)
                     if back_node is not None:
-                        # Back to the target node, and update the status of the node on the path from back_node to source_node
                         nodes_in_path = self.graph.get_path_between(source_node, back_node)
-                        self.trigger_logger.info('Need to back...')
-                        self.trigger_logger.info('Prepare to back...')
                         for i, ui_node in enumerate(nodes_in_path):
                             ui_node.reset_exercised_state()
                             if i < len(nodes_in_path) - 1:
                                 for edge in self.graph.get_edge(ui_node, nodes_in_path[i + 1]):
                                     ui_node.get_element_by_index(edge.get_element_index()).attribute['is_clicked'] = False
                         try:
-                            self.trigger_logger.info('Begin to back...')
                             self.back_to_node(source_node, back_node)
-                            self.trigger_logger.info('Back finish!')
                         except:
                             print(traceback.format_exc())
-                            self.trigger_logger.info('Timeout! Can not back.')
                     trans_edge = None
                 except Exception:
                     self.trigger_logger.error('TE bugs!', exc_info=True)

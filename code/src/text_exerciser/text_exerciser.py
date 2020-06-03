@@ -170,10 +170,7 @@ class TextExerciser:
                     else:
                         self.log_input('Deal verify code fail.')
 
-                # If no text box match the hint in current page,
-                # trace the graph for finding the page which contains the corresponding text box that can match the hint
                 if distribute_failed_texts:
-                    logger.info('Find target edit-box')
                     target_back_node = None
                     max_back_count = 5
                     for ui_node in list(reversed(self.graph.get_path_between(start_node)))[1:max_back_count]:
