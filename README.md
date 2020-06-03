@@ -1,29 +1,8 @@
 # TextExerciser
+TextExerciser(TE) is an iterative, feedback-driven text input exerciser for Android apps. It can dynamictlly drive apps and generate valid text inputs based on hint shown on UI. To learn further, visit TE homepage.
 
-## About TextExerciser
-TextExerciser began as a research project at the Fudan University, with the goal of generating text input in dynamic analysis of Android apps. 
-
-Our corresponding paper was accepted by IEEE Symposium on Security and Privacy 2020:
-
-TextExerciser: Feedback-driven Text InputExercising for Android Applications.
-Yuyu He, Lei Zhang, Zhemin Yang, Yinzhi Cao, Keke Lian, Shuai Li, Wei Yang, Zhibo Zhang, Min Yang, Yuan Zhang, Haixin Duan.
-
-We thank the many contributors to this project and our paper, including Yinzhi Cao in Johns Hopkins University, Wei Yang in University of Texas at Dalla, and other collaborators.
-
-## About
-
-TextExerciser, TE for short, is an iterative, feedback-driven text input exerciser, which dedicates to generating valid text inputs for Android apps. 
-
-We implement it in python code based on [Uiautomator2](https://github.com/openatx/uiautomator2) and both emulators and physical devices are supported.
-
-It can be used in app testing for bug finding or working together with dynamic analyse tool for sensitive behaviors detection. TextExerciser has following advantages:
-* It does not require system modification or app instrumentation
-* It can automatically generate text inputs that can satisfy input constraints when exploring the UI of Android apps.
-
-
-
-##### Reference
-He, Yuyu, Lei Zhang, Zhemin Yang, Yinzhi Cao, Keke Lian, Shuai Li, Wei Yang et al. "TextExerciser: Feedback-driven Text Input Exercising for Android Applications." In the IEEE Symposium on Security and Privacy (Oakland) 2020.
+## Publication
+Yuyu He, Lei Zhang, Zhemin Yang, Yinzhi Cao, Keke Lian, Shuai Li, Wei Yang, Zhibo Zhang, Min Yang, Yuan Zhang, Haixin Duan. "TextExerciser: Feedback-driven Text Input Exercising for Android Applications." In the IEEE Symposium on Security and Privacy (Oakland) 2020.
 
 
 ## Device requirements
