@@ -59,7 +59,7 @@ def main():
         from src.triggers.te_trigger.te_trigger import TETrigger
         TETrigger(devices[0], op_throttle, args.apk).run_trigger()
     elif args.folder:
-        from src import Task
+        from src.triggers.te_trigger_distribute import Task
         Task(args.folder).analyze(devices, op_throttle)
     else:
         print('You must provide an apk file to test.')
