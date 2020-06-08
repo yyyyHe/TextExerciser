@@ -31,9 +31,6 @@ class IG:
         logger = globalConfig.te_logger
 
     def identify(self, text_node: list, edit_node: list, texts: list) -> ([str], [str]):
-        """
-        Determine whether text can be successfully matched with edit_node
-        """
         if not edit_node:
             return texts, []
         texts = [t.strip() for t in texts]
@@ -228,7 +225,6 @@ class IG:
     def identify_hints(self, text_nodes, edit_nodes, candidate_dynamic_hints, addition_toast, total_edit) -> [str]:
         """
         Process text and find the corresponding EditNode
-        :return: Returns the text that failed to bind EditNode
         """
         result_01 = {}
         total_sentence = []
@@ -306,8 +302,7 @@ class IG:
             for res_toast in res_toasts:
                 logger.info('Distribute: %s' % res_toast)
                 if not ce.add_hint2type(edit_nodes, res_toast, total_edit, False):
-                    # No binding,
-                    # Return to driver and determine whether needs to trace back UI for finding corresponding input box.
+                    # No binding
                     logger.info('No target find for toast: %s' % res_toast)
                     identify_failed_text.append(res_toast)
         self.write_log("ZeroOne", os.path.join(self.LogPath, Str01LogName), result_01)
