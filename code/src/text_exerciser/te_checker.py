@@ -78,6 +78,7 @@ class TEChecker:
                 result = False
             event_count += TE.eventNum
             self.log_improvement_to_file('end')
+            TE.ig.print_history()
             self.exerciserLog.write("result:" + str(result) + '\n')
             self.exerciserLog.write("Add Event: " + str(TE.eventNum) + "\n")
             self.exerciserLog.write("*************endTime:" + str(time.time()) + '\n')

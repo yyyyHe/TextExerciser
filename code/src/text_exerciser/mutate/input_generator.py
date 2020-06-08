@@ -30,6 +30,13 @@ class IG:
         global logger
         logger = globalConfig.te_logger
 
+    def print_history(self):
+        for edit in self.TotalEdit:
+            node_info = edit.getInfo()
+            self.write_log("NodeInfo", os.path.join(self.LogPath, RestrLogName), node_info)
+        if len(self.TotalEdit) == 0:
+            self.write_log("NodeInfo", os.path.join(self.LogPath, RestrLogName), 'None')
+
     def identify(self, text_node: list, edit_node: list, texts: list) -> ([str], [str]):
         if not edit_node:
             return texts, []
