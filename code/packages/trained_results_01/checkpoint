@@ -1,6 +1,0 @@
-model_checkpoint_path: "best_model.ckpt"
-all_model_checkpoint_paths: "..\\checkpoints_1589627075\\model-3000"
-all_model_checkpoint_paths: "..\\checkpoints_1589627075\\model-3010"
-all_model_checkpoint_paths: "..\\checkpoints_1589627075\\model-3130"
-all_model_checkpoint_paths: "..\\checkpoints_1589627075\\model-3320"
-all_model_checkpoint_paths: "best_model.ckpt"

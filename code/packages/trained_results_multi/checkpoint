@@ -1,6 +1,0 @@
-model_checkpoint_path: "best_model.ckpt"
-all_model_checkpoint_paths: "..\\checkpoints_1589358394\\model-1040"
-all_model_checkpoint_paths: "..\\checkpoints_1589358394\\model-1050"
-all_model_checkpoint_paths: "..\\checkpoints_1589358394\\model-1220"
-all_model_checkpoint_paths: "..\\checkpoints_1589358394\\model-2010"
-all_model_checkpoint_paths: "best_model.ckpt"

@@ -1,2 +1,0 @@
-# Training Data
-This is the training data of classifier used by TextExerciser for classifying hints into different categories. These data are extended and preprocessed from 1,548 hins collected from popular Android apps as mentioned in our paper. The source code of the machine learning model is in https://github.com/jiegzhan/multi-class-text-classification-cnn-rnn .
